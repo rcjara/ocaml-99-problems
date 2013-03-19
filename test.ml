@@ -65,7 +65,14 @@ let () =
     assert (pack [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e] = [[`a;`a;`a;`a]; [`b]; [`c;`c]; [`a;`a]; [`d;`d]; [`e;`e;`e;`e]]);
     assert (pack [1;2;2;3;3;3;4;4;4;4] = [[1];[2;2];[3;3;3];[4;4;4;4]]);
     assert (pack [1;2;2;3;3;3;4;4;4;4;1] = [[1];[2;2];[3;3;3];[4;4;4;4];[1]]);
+    print_string "PASSED\n";
 
+    print_string "Tenth problem... ";
+    assert (encode [] = []);
+    assert (encode [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e] = [4,`a ; 1,`b ; 2,`c ; 2,`a ; 1,`d ; 4,`e]);
+    assert (encode [1;1;1;2;2;2;2;3;3;4] = [3,1 ; 4,2; 2,3; 1,4]);
+    assert (encode ["a";"b";"b";"c"] = [1,"a"; 2,"b"; 1,"c"]);
+    assert (encode ["a"] = [1,"a"]);
     print_string "PASSED\n";
 ;;
 
