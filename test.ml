@@ -29,5 +29,12 @@ let () =
   assert (length [0; 1; 2; 3; 4] = 5);
   assert (length ["a"; "b"; "c"] = 3);
   print_string "PASSED\n";
+
+  print_string "Five problem... "; 
+  assert (rev ["a"] = ["a"]);
+  assert (rev [1; 2; 3] = [3; 2; 1]);
+  assert (rev [] = []);
+  assert (rev ["a"; "b"; "c"] = ["c"; "b"; "a"]);
+  print_string "PASSED\n";
 ;;
 
