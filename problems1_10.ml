@@ -46,3 +46,8 @@ let rev lst =
     rev1 [] lst
 ;;
 
+(* Problem 6 *)
+let palindrome lst =
+    rev lst = lst
+;;
+

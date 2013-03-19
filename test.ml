@@ -30,11 +30,21 @@ let () =
   assert (length ["a"; "b"; "c"] = 3);
   print_string "PASSED\n";
 
-  print_string "Five problem... "; 
+  print_string "Fifth problem... "; 
   assert (rev ["a"] = ["a"]);
   assert (rev [1; 2; 3] = [3; 2; 1]);
   assert (rev [] = []);
   assert (rev ["a"; "b"; "c"] = ["c"; "b"; "a"]);
   print_string "PASSED\n";
+
+  print_string "Sixth problem... "; 
+  assert (palindrome ["a"]);
+  assert (palindrome [1; 2; 1]);
+  assert (palindrome []);
+  assert (palindrome ["b"; "o"; "o"; "b"]);
+  assert (not (palindrome [1; 2; 3]));
+  assert (not (palindrome [1; 2]));
+  print_string "PASSED\n";
+
 ;;
 
