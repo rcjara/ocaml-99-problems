@@ -1,21 +1,37 @@
-
 (* buildcommand:
-   ocamlbuild -use-ocamlfind problems1_10.native
-*)
+   ocamlbuild -use-ocamlfind problems1_10.native *)
 
 (* Problem 1 *)
 let rec last lst =
   match lst with
-  | []    -> None
-  | x::[] -> Some x
-  | x::xs -> last xs
+    | []    -> None
+    | x::[] -> Some x
+    | x::xs -> last xs
 ;;
 
-let () =
-  print_string "last of [int] ";
-  assert (last [1; 2; 3] = Some 3);
-  if last [1; 2; 3] = Some 3
-  then print_string "passed\n"
-  else print_string "FAILED\n"
+(* Problem 2 *)
+let rec last_two lst = 
+  match lst with 
+    | [] -> None
+    | x::[] -> None
+    | x::y::[] -> Some (x,y)
+    | x::xs -> last_two xs
 ;;
+
+(* Problem 3 *)
+let rec at index lst = 
+  match lst with 
+    | [] -> None
+    | x::xs -> if index = 0 then Some x else at (index - 1) xs
+
+(* Problem 4 *)
+let length lst = 
+  let rec length1 acc lst = 
+    match lst with 
+      | [] -> acc
+      | x::xs -> length1 (acc + 1) xs
+  in
+  length1 0 lst
+;;
+
 
