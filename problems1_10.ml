@@ -10,8 +10,8 @@ let rec last lst =
 ;;
 
 (* Problem 2 *)
-let rec last_two lst = 
-    match lst with 
+let rec last_two lst =
+    match lst with
     | [] -> None
     | x::[] -> None
     | x::y::[] -> Some (x,y)
@@ -19,16 +19,16 @@ let rec last_two lst =
 ;;
 
 (* Problem 3 *)
-let rec at index lst = 
-    match lst with 
+let rec at index lst =
+    match lst with
     | [] -> None
     | x::xs -> if index = 0 then Some x else at (index - 1) xs
-;;    
+;;
 
 (* Problem 4 *)
-let length lst = 
-    let rec length1 acc lst = 
-        match lst with 
+let length lst =
+    let rec length1 acc lst =
+        match lst with
         | [] -> acc
         | x::xs -> length1 (acc + 1) xs
     in
@@ -38,7 +38,7 @@ let length lst =
 
 (* Problem 5 *)
 let rev lst =
-    let rec rev1 acc lst = 
+    let rec rev1 acc lst =
         match lst with
         | [] -> acc
         | x::xs -> rev1 (x::acc) xs
@@ -56,13 +56,10 @@ type 'a node =
     | Many of 'a node list;;
 
 (* Problem 7 *)
-let flatten lst =
-    let rec flatten1 acc node =
-        match node with
-        | (Many []) -> rev acc
-        | (Many One(x)::[]) -> rev acc
-        | (Many (One(x)::xs)) -> flatten1 (x::acc) (Many xs)
-        | (Many xs) -> flatten1 acc (Many xs)
-    in flatten1 [] (Many lst)
+let rec flatten2 lst =
+  match lst with
+  | []             -> []
+  | (One x)::xs    -> x :: flatten xs
+  | (Many l)::xs -> flatten l @ flatten xs
 ;;
 
