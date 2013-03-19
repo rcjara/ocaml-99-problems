@@ -1,6 +1,5 @@
 open Problems1_10
 
-
 let () =
     print_string "First problem... ";
     assert (last [1; 2; 3] = Some 3);
@@ -74,5 +73,7 @@ let () =
     assert (encode ["a";"b";"b";"c"] = [1,"a"; 2,"b"; 1,"c"]);
     assert (encode ["a"] = [1,"a"]);
     print_string "PASSED\n";
+
+
 ;;
 
