@@ -59,10 +59,9 @@ type 'a node =
 let flatten lst =
     let rec flatten1 acc node =
         match node with
-        | (Many []) -> rev acc
-        | (Many One(x)::[]) -> rev acc
-        | (Many (One(x)::xs)) -> flatten1 (x::acc) (Many xs)
-        | (Many xs) -> flatten1 acc (Many xs)
-    in flatten1 [] (Many lst)
+        | One x -> x::acc
+        | Many [] -> acc
+        | Many (x::xs) -> flatten1 (flatten1 acc x) (Many xs)
+    in rev (flatten1 [] (Many lst))
 ;;
 
