@@ -54,5 +54,9 @@ let () =
     assert (flatten [ One `a ; One `b ; One `c ; One `d ; One `e ] = [ `a ; `b ; `c ; `d ; `e ]);
     print_string "PASSED\n";
 
+    print_string "Eigth problem... "; 
+    assert (compress [] = []);
+    assert (compress [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e] = [`a;`b;`c;`a;`d;`e]);
+    print_string "PASSED\n";
 ;;
 
