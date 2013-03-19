@@ -90,5 +90,14 @@ let pack lst =
   in match lst with
   | []      -> []
   | (x::xs) -> aux [x] xs
-
 ;;
+
+let pack_santi lst =
+    let rec f acc acc2 y lst =
+        match lst with
+        | [] -> List.rev (acc2 :: acc)
+        | x :: xs when x = y -> f acc (x::acc2) y xs
+        | x :: xs            -> f (acc2::acc) [x] x xs
+    in match lst with
+    | [] -> []
+    | x :: xs -> f [] [x] x xs;;
