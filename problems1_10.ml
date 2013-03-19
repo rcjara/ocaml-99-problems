@@ -56,6 +56,14 @@ type 'a node =
     | Many of 'a node list;;
 
 (* Problem 7 *)
+let flatten lst =
+    let rec flatten1 acc node =
+        match node with
+        | One x -> x::acc
+        | Many [] -> acc
+        | Many (x::xs) -> flatten1 (flatten1 acc x) (Many xs)
+    in rev (flatten1 [] (Many lst))
+
 let rec flatten2 lst =
   match lst with
   | []             -> []
