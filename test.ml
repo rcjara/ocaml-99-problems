@@ -58,5 +58,10 @@ let () =
     assert (compress [] = []);
     assert (compress [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e] = [`a;`b;`c;`a;`d;`e]);
     print_string "PASSED\n";
+
+    print_string "Ninth problem... "; 
+    assert (pack [] = []);
+    assert (pack [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e] = [[`a;`a;`a;`a]; [`b]; [`c;`c]; [`a;`a]; [`d;`d]; [`e;`e;`e;`e]]);
+    print_string "PASSED\n";
 ;;
 
