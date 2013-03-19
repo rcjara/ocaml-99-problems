@@ -71,3 +71,12 @@ let rec flatten2 lst =
   | (Many l)::xs -> flatten l @ flatten xs
 ;;
 
+(* Problem 8 *)
+let rec destutter lst =
+  match lst with
+  | []           -> []
+  | x :: []      -> [x]
+  | a :: b :: xs -> if a = b
+                    then destutter (a :: xs)
+                    else a :: destutter (b :: xs)
+
