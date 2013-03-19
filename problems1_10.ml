@@ -79,3 +79,16 @@ let rec compress lst =
                        then compress (a :: xs)
                        else a :: compress (b :: xs)
 
+(* Problem 9 *)
+let pack lst =
+  let rec aux acc lst =
+    match acc, lst with
+    | acc, []          -> [acc]
+    | (x::xs), (y::ys) -> if x = y
+                          then aux (x::acc) ys
+                          else acc :: (aux [y] ys)
+  in match lst with
+  | []      -> []
+  | (x::xs) -> aux [x] xs
+
+;;

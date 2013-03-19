@@ -15,7 +15,7 @@ let () =
     assert (last_two ["a"] = None);
     print_string "PASSED\n";
 
-    print_string "Third problem... "; 
+    print_string "Third problem... ";
     assert (at 0 ["a"] = Some "a");
     assert (at 1 [1; 2; 3] = Some 2);
     assert (at 1 [] = None);
@@ -23,7 +23,7 @@ let () =
     assert (at 3 ["a"; "b"; "c"] = None);
     print_string "PASSED\n";
 
-    print_string "Fourth problem... "; 
+    print_string "Fourth problem... ";
     assert (length ["a"] = 1);
     assert (length [1; 2; 3] = 3);
     assert (length [] = 0);
@@ -31,14 +31,14 @@ let () =
     assert (length ["a"; "b"; "c"] = 3);
     print_string "PASSED\n";
 
-    print_string "Fifth problem... "; 
+    print_string "Fifth problem... ";
     assert (rev ["a"] = ["a"]);
     assert (rev [1; 2; 3] = [3; 2; 1]);
     assert (rev [] = []);
     assert (rev ["a"; "b"; "c"] = ["c"; "b"; "a"]);
     print_string "PASSED\n";
 
-    print_string "Sixth problem... "; 
+    print_string "Sixth problem... ";
     assert (palindrome ["a"]);
     assert (palindrome [1; 2; 1]);
     assert (palindrome []);
@@ -47,22 +47,24 @@ let () =
     assert (not (palindrome [1; 2]));
     print_string "PASSED\n";
 
-    print_string "Seventh problem... "; 
+    print_string "Seventh problem... ";
     assert (flatten [] = []);
     assert (flatten [Many [Many []]] = []);
     assert (flatten [ One `a ; Many [ One `b ; Many [ One `c ; One `d ] ; One `e ] ] = [ `a ; `b ; `c ; `d ; `e ]);
     assert (flatten [ One `a ; One `b ; One `c ; One `d ; One `e ] = [ `a ; `b ; `c ; `d ; `e ]);
     print_string "PASSED\n";
 
-    print_string "Eigth problem... "; 
+    print_string "Eigth problem... ";
     assert (compress [] = []);
     assert (compress [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e] = [`a;`b;`c;`a;`d;`e]);
     print_string "PASSED\n";
 
-    print_string "Ninth problem... "; 
+    print_string "Ninth problem... ";
     assert (pack [] = []);
+    assert (pack [`a] = [[`a]]);
     assert (pack [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e] = [[`a;`a;`a;`a]; [`b]; [`c;`c]; [`a;`a]; [`d;`d]; [`e;`e;`e;`e]]);
-    assert (pack [1;2;2;3;3;3;4;4;4;4] = [[1];[2;2];[3;3;3][4;4;4;4]);
+    assert (pack [1;2;2;3;3;3;4;4;4;4] = [[1];[2;2];[3;3;3];[4;4;4;4]]);
+    assert (pack [1;2;2;3;3;3;4;4;4;4;1] = [[1];[2;2];[3;3;3];[4;4;4;4];[1]]);
   print_string "PASSED\n";
 ;;
 
