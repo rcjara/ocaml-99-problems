@@ -62,6 +62,7 @@ let () =
     print_string "Ninth problem... "; 
     assert (pack [] = []);
     assert (pack [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e] = [[`a;`a;`a;`a]; [`b]; [`c;`c]; [`a;`a]; [`d;`d]; [`e;`e;`e;`e]]);
-    print_string "PASSED\n";
+    assert (pack [1;2;2;3;3;3;4;4;4;4] = [[1];[2;2];[3;3;3][4;4;4;4]);
+  print_string "PASSED\n";
 ;;
 
