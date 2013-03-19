@@ -1,5 +1,6 @@
+
 (* buildcommand:
-   ocamlbuild -use-ocamlfind problems1-10.native
+   ocamlbuild -use-ocamlfind problems1_10.native
 *)
 
 (* Problem 1 *)
@@ -17,3 +18,4 @@ let () =
   then print_string "passed\n"
   else print_string "FAILED\n"
 ;;
+
