@@ -72,11 +72,11 @@ let rec flatten2 lst =
 ;;
 
 (* Problem 8 *)
-let rec destutter lst =
+let rec compress lst =
   match lst with
   | []           -> []
   | x :: []      -> [x]
   | a :: b :: xs -> if a = b
-                    then destutter (a :: xs)
-                    else a :: destutter (b :: xs)
+                    then compress (a :: xs)
+                    else a :: compress (b :: xs)
 
