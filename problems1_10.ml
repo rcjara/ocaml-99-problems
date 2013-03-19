@@ -74,9 +74,8 @@ let rec flatten2 lst =
 (* Problem 8 *)
 let rec compress lst =
   match lst with
-  | []           -> []
-  | x :: []      -> [x]
-  | a :: b :: xs -> if a = b
-                    then compress (a :: xs)
-                    else a :: compress (b :: xs)
+  | ([] | [_]) as l -> l
+  | a :: b :: xs    -> if a = b
+                       then compress (a :: xs)
+                       else a :: compress (b :: xs)
 
