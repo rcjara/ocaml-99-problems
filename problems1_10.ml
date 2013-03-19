@@ -51,3 +51,18 @@ let palindrome lst =
     rev lst = lst
 ;;
 
+type 'a node =
+    | One of 'a
+    | Many of 'a node list;;
+
+(* Problem 7 *)
+let flatten lst =
+    let rec flatten1 acc node =
+        match node with
+        | (Many []) -> rev acc
+        | (Many One(x)::[]) -> rev acc
+        | (Many (One(x)::xs)) -> flatten1 (x::acc) (Many xs)
+        | (Many xs) -> flatten1 acc (Many xs)
+    in flatten1 [] (Many lst)
+;;
+
