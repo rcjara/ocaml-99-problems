@@ -92,3 +92,15 @@ let pack lst =
   | (x::xs) -> aux [x] xs
 
 ;;
+
+(* Problem 10 *)
+let encode lst =
+  let rec aux acc lst =
+    match acc, lst with
+    | _, [] -> acc
+    | [], x::xs -> aux [(1, x)] xs
+    | (num, y)::ys, x::xs -> if x = y
+                             then aux (((num + 1), y)::ys) xs
+                             else aux ((1, x)::acc) xs
+    in aux [] lst
+;;
