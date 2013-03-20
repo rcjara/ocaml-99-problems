@@ -35,7 +35,6 @@ let length lst =
     length1 0 lst
 ;;
 
-
 (* Problem 5 *)
 let rev lst =
     let rec rev1 acc lst =
