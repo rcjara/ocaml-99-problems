@@ -1,3 +1,5 @@
+
+
 let pack_santi lst =
     let rec f acc acc2 y lst =
         match lst with
@@ -47,9 +49,6 @@ let decode lst =
     List.rev(List.fold_left decode_item [] lst)
 
 
-(* Problem 13 *) 
-
-
 (* Problem 15 *)
 let replicate lst n = 
   let rec times acc i item =
@@ -62,3 +61,23 @@ let replicate lst n =
 (* Problem 14 *) 
 let duplicate lst = replicate lst 2;;
 
+
+(* Problem 17 *)
+open Batteries;;
+let rec split ls n = (List.take n ls, List.drop n ls);;  
+
+(* Problem 18 *)
+let slice_h lst i k = 
+  List.take (k - i + 1) (List.drop i lst)
+
+let rec slice lst i k = 
+  match lst with 
+      [] -> [] 
+    | x::xs -> if i = 0 && k >= 0 then x::(slice xs i (k - 1))
+               else if i > 0 then slice xs (i - 1) (k - 1)
+               else []
+;;
+
+(* Problem 19 *)
+
+(* Problem 20 *)
