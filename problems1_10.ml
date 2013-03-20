@@ -50,11 +50,12 @@ let palindrome lst =
     rev lst = lst
 ;;
 
+(* Problem 7, solution 1*)
+
 type 'a node =
     | One of 'a
     | Many of 'a node list;;
 
-(* Problem 7 *)
 let flatten lst =
     let rec flatten1 acc node =
         match node with
@@ -62,12 +63,15 @@ let flatten lst =
         | Many [] -> acc
         | Many (x::xs) -> flatten1 (flatten1 acc x) (Many xs)
     in rev (flatten1 [] (Many lst))
+;;
+
+(* Problem 7, solution 2*)
 
 let rec flatten2 lst =
   match lst with
   | []             -> []
   | (One x)::xs    -> x :: flatten xs
-  | (Many l)::xs -> flatten l @ flatten xs
+  | (Many l)::xs   -> flatten l @ flatten xs
 ;;
 
 (* Problem 8 *)
@@ -77,8 +81,9 @@ let rec compress lst =
   | a :: b :: xs    -> if a = b
                        then compress (a :: xs)
                        else a :: compress (b :: xs)
+;;
 
-(* Problem 9 *)
+(* Problem 9, solution 1*)
 let pack lst =
   let rec aux acc lst =
     match acc, lst with
@@ -91,6 +96,7 @@ let pack lst =
   | (x::xs) -> aux [x] xs
 ;;
 
+(* Problem 9, solution 2*)
 let pack_santi lst =
     let rec f acc acc2 y lst =
         match lst with

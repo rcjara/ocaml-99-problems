@@ -46,24 +46,39 @@ let () =
     assert (not (palindrome [1; 2]));
     print_string "PASSED\n";
 
-    print_string "Seventh problem... ";
+    print_string "Seventh problem, solution 1... ";
     assert (flatten [] = []);
     assert (flatten [Many [Many []]] = []);
     assert (flatten [ One `a ; Many [ One `b ; Many [ One `c ; One `d ] ; One `e ] ] = [ `a ; `b ; `c ; `d ; `e ]);
     assert (flatten [ One `a ; One `b ; One `c ; One `d ; One `e ] = [ `a ; `b ; `c ; `d ; `e ]);
     print_string "PASSED\n";
 
-    print_string "Eigth problem... ";
+    print_string "Seventh problem, solution 2... ";
+    assert (flatten2 [] = []);
+    assert (flatten2 [Many [Many []]] = []);
+    assert (flatten2 [ One `a ; Many [ One `b ; Many [ One `c ; One `d ] ; One `e ] ] = [ `a ; `b ; `c ; `d ; `e ]);
+    assert (flatten2 [ One `a ; One `b ; One `c ; One `d ; One `e ] = [ `a ; `b ; `c ; `d ; `e ]);
+    print_string "PASSED\n";
+
+    print_string "Eighth problem... ";
     assert (compress [] = []);
     assert (compress [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`e;`e;`e;`e] = [`a;`b;`c;`a;`d;`e]);
     print_string "PASSED\n";
 
-    print_string "Ninth problem... ";
+    print_string "Ninth problem, solution 1... ";
     assert (pack [] = []);
     assert (pack [`a] = [[`a]]);
     assert (pack [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e] = [[`a;`a;`a;`a]; [`b]; [`c;`c]; [`a;`a]; [`d;`d]; [`e;`e;`e;`e]]);
     assert (pack [1;2;2;3;3;3;4;4;4;4] = [[1];[2;2];[3;3;3];[4;4;4;4]]);
     assert (pack [1;2;2;3;3;3;4;4;4;4;1] = [[1];[2;2];[3;3;3];[4;4;4;4];[1]]);
+    print_string "PASSED\n";
+
+    print_string "Ninth problem, solution 2... ";
+    assert (pack_santi [] = []);
+    assert (pack_santi [`a] = [[`a]]);
+    assert (pack_santi [`a;`a;`a;`a;`b;`c;`c;`a;`a;`d;`d;`e;`e;`e;`e] = [[`a;`a;`a;`a]; [`b]; [`c;`c]; [`a;`a]; [`d;`d]; [`e;`e;`e;`e]]);
+    assert (pack_santi [1;2;2;3;3;3;4;4;4;4] = [[1];[2;2];[3;3;3];[4;4;4;4]]);
+    assert (pack_santi [1;2;2;3;3;3;4;4;4;4;1] = [[1];[2;2];[3;3;3];[4;4;4;4];[1]]);
     print_string "PASSED\n";
 
     print_string "Tenth problem... ";
