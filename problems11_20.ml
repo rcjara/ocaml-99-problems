@@ -48,3 +48,17 @@ let decode lst =
 
 
 (* Problem 13 *) 
+
+
+(* Problem 15 *)
+let replicate lst n = 
+  let rec times acc i item =
+    if i > 0
+    then times (item::acc) (i - 1) item
+    else acc
+  in 
+  List.rev(List.fold_left (fun acc item -> times acc n item) [] lst)
+
+(* Problem 14 *) 
+let duplicate lst = replicate lst 2;;
+
