@@ -34,5 +34,11 @@ let () =
   print_string "Problem Eighteen...";
   assert(slice [`a;`b;`c;`d;`e;`f;`g;`h;`i;`j] 2 6 = [`c;`d;`e;`f;`g]);
   print_string "PASSED\n";
+
+  print_string "Problem Nineteen...";
+  assert(rotate [`a;`b;`c;`d;`e;`f;`g;`h] 3 = [`d;`e;`f;`g;`h;`a;`b;`c]);
+  assert(rotate [`a;`b;`c;`d;`e;`f;`g;`h] 0 = [`a;`b;`c;`d;`e;`f;`g;`h]);
+  assert(rotate [`a;`b;`c;`d;`e;`f;`g;`h] (-2) = [`g;`h;`a;`b;`c;`d;`e;`f]);
+  print_string "PASSED\n";
 ;;
 

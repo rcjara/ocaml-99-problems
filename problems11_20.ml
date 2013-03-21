@@ -87,5 +87,9 @@ let rec slice lst i k =
 ;;
 
 (* Problem 19 *)
+let rotate lst n = 
+  if n > 0 then (List.drop n lst) @ (List.take n lst)
+  else let length = List.length lst
+       in (List.drop (length + n) lst) @ (List.take (length + n) lst);;
 
 (* Problem 20 *)
