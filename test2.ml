@@ -21,6 +21,11 @@ let () =
   assert (replicate [`a;`b;`c] 3 = [`a;`a;`a;`b;`b;`b;`c;`c;`c]);
   print_string "PASSED\n";
 
+  print_string "Problem Sixteen... ";
+  assert (drop [`a;`b;`c;`d;`e;`f;`g;`h;`i;`j] 3 = [`a;`b;`d;`e;`g;`h;`j]);
+  assert (drop [] 10 = []);
+  print_string "PASSED\n";
+
   print_string "Problem Seventeen...";
   assert (split [] 2 = ([],[]));
   assert (split [`a;`b;`c;`d;`e;`f;`g;`h;`i;`j] 3 = ([`a;`b;`c] , [`d;`e;`f;`g;`h;`i;`j]));
