@@ -61,6 +61,14 @@ let replicate lst n =
 (* Problem 14 *) 
 let duplicate lst = replicate lst 2;;
 
+(* Problem 16 *)
+let drop lst n =
+  let rec aux lst i = 
+    match lst,i with
+	[],_ -> []
+      | x::xs, 0 -> aux xs (n-1)
+      | x::xs, j -> x::(aux xs (j-1))
+  in aux lst (n-1)    
 
 (* Problem 17 *)
 open Batteries;;
@@ -79,5 +87,9 @@ let rec slice lst i k =
 ;;
 
 (* Problem 19 *)
+let rotate lst n = 
+  if n > 0 then (List.drop n lst) @ (List.take n lst)
+  else let length = List.length lst
+       in (List.drop (length + n) lst) @ (List.take (length + n) lst);;
 
 (* Problem 20 *)
