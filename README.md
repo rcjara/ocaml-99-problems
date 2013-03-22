@@ -3,7 +3,7 @@ http://ocaml.org/tutorials/99problems.html
 
 # Dependencies
 * Opam
-* Batteries (we use this package for goodies like <code>List.take</code> and <code>List.drop</code>)
+* Batteries: use this package for goodies like <code>List.take</code> and <code>List.drop</code>
 
 # I. Install OCaml + OPAM
 See Yaron Minsky's documentation 
@@ -15,7 +15,7 @@ See Yaron Minsky's documentation
 	$ opam install utop core_extended 
 	$ eval `opam config -env`
 
-	You may need to add `opam config -env` to your .bash_profile (there may be a better way of doing this).
+	You may need to add `opam config -env` to your .bash_profile (there may be a better way of doing this). Now, go get a cup of coffee or a beer, this is going to take a while to install.
 
 # III. Create an OCaml init (from Real World OCaml)
 Create an init file, such as <code> ~/.ocamlinit</code>
@@ -28,10 +28,12 @@ Then add these lines:
 	#require "core.top"
 
 # IV. Installing packages
-	   opam install {package_name} (i.e. batteries)
-	   add the new dependency to your <code>_tags</code> file:
-	   <*>: package(batteries)
-	   (The tags file will be created when you compile using ocamlbuild, shown below.)
+
+<code>opam install {package_name} (i.e. batteries)</code>
+
+add the new dependency to your <code>_tags</code> file:
+		<code><*>: package(batteries)</code>
+(The tags file will be created when you compile using ocamlbuild, shown below.)
 
 # V. Using packages
 * We open the package namespace, like this: <code>open Batteries;;</code>
