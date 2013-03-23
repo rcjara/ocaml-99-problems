@@ -2,7 +2,6 @@
     ocamlbuild -use-ocamlfind problems41_50.native *)
 
 (* Problem 49 *)
-open Batteries;;
 let rec gray n =
   match n with
     | 0 -> []
@@ -25,7 +24,7 @@ let freq = function
 ;;
 
 let sort_ht =
-  List.sort ~cmp:(fun a b -> compare (freq a) (freq b))
+  List.sort (fun a b -> compare (freq a) (freq b))
 ;;
 
 let cmb_nodes n1 n2 = Node ((freq n1) + (freq n2), n1, n2);;
@@ -36,11 +35,22 @@ let rec gen_tree ns =
   | n1 :: n2 :: ns -> gen_tree ((cmb_nodes n1 n2) :: ns)
 ;;
 
+let hc_char = function
+  | Hc(c, _) -> c
+;;
+
+let sort_hc =
+  List.sort (fun a b -> compare (hc_char a) (hc_char b))
+;;
+
+
 let huffman frs =
   let rec aux prefix tree =
     match tree with
     | Node (_, lft, rgt) -> (aux (prefix ^ "0") lft) @ (aux (prefix ^ "1") rgt)
     | Fr (chr, _) -> [Hc (chr, prefix)]
-  in aux "" (gen_tree frs)
+  in sort_hc (aux "" (gen_tree frs))
 ;;
+
+
 
