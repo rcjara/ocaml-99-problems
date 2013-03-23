@@ -6,11 +6,18 @@ files = ARGV.map { |f| Dir[f] }
 
 native_files = files.map { |f| f.gsub('.ml', '.native') }
 
-puts "building ... "
-puts native_files.join("\n")
-files.each { |f| `./build.sh #{f}` }
+`rm -r _build`
 
 native_files.each do |f|
-  result = `./_build/#{f}`
-  puts result unless result.empty?
+  errors = `./build.sh #{f}`
+  `rm #{f}`
+  puts errors unless errors.empty?
+end
+
+native_files.each do |f|
+  file_path = './_build/' + f
+  if File.exist? file_path
+    result = `#{file_path}`
+    puts result unless result.empty?
+  end
 end
