@@ -29,6 +29,7 @@ let sort_ht =
 
 let cmb_nodes n1 n2 = Node ((freq n1) + (freq n2), n1, n2);;
 
+// TODO: use a heap instead of sorting
 let rec gen_tree ns =
   match sort_ht ns with
   | n :: [] -> n
