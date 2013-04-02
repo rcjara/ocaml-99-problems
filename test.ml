@@ -41,7 +41,6 @@ let () =
     assert (palindrome ["a"]);
     assert (palindrome [1; 2; 1]);
     assert (palindrome []);
-    assert (palindrome ["b"; "o"; "o"; "b"]);
     assert (not (palindrome [1; 2; 3]));
     assert (not (palindrome [1; 2]));
     print_string "PASSED\n";
