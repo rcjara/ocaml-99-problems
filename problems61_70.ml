@@ -18,3 +18,14 @@ let rec leaves = function
   | Empty -> []
   | Node(a, Empty, Empty) -> [a]
   | Node(_, l, r) -> leaves(l) @ leaves(r);;
+
+(* Problem 62 *)
+let rec internals = function
+  | Empty -> []
+  | Node(a, Empty, Empty) -> []
+  | Node(a, l, r) -> a :: (internals l) @ (internals r);;
+
+let rec at_level t l = match t,l with
+  | Empty, _ -> []
+  | Node(a,_,_), 1 -> [a]
+  | Node(_,l,r), n -> (at_level l (n-1)) @ (at_level r (n-1));;
